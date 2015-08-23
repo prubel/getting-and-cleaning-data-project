@@ -8,8 +8,7 @@
 ## Assumptions
  This script assumers that the dataset UCI HAR Dataset.zip
  with an md5sum of d29710c9530a31f303801b6bc34bd895 has been unzipped
- from the directory containing this script into UCI-HAR-Dataset. Note that 
- the spaces in the original directory name have been replaced with dashes.
+ from the directory containing this script into ICI HAR Dataset. 
 
 ## Annotated Code:
 import necessary libraries
@@ -22,8 +21,8 @@ library(dplyr)
  place test and train together using rbind. Leaves our data in
  the X variable, which matches the description in the UCI HAR data. 
 ```
-xtst <- read.table("UCI-HAR-Dataset/test/X_test.txt")
-xtrn <- read.table("UCI-HAR-Dataset/train/X_train.txt")
+xtst <- read.table("UCI HAR Dataset/test/X_test.txt")
+xtrn <- read.table("UCI HAR Dataset/train/X_train.txt")
 X <- rbind(xtst, xtrn)
 
 ```
@@ -34,7 +33,7 @@ X <- rbind(xtst, xtrn)
  the second column (names) and use these to set the column names of X.
  At this point we have addressed parts of points 1 and 4. 
 ```
-names <- read.table("UCI-HAR-Dataset/features.txt")
+names <- read.table("UCI HAR Dataset/features.txt")
 new_names <- gsub("\\(\\)", "", names[,2])
 colnames(X) <- new_names
 
@@ -46,8 +45,8 @@ colnames(X) <- new_names
  the data in X corresponds to. This activity column is named 'activity',
  keeping our labels per point #4.
 ```
-ytst <- read.table("UCI-HAR-Dataset/test/y_test.txt")
-ytrn <- read.table("UCI-HAR-Dataset/train/y_train.txt")
+ytst <- read.table("UCI HAR Dataset/test/y_test.txt")
+ytrn <- read.table("UCI HAR Dataset/train/y_train.txt")
 activities <- rbind(ytst, ytrn)
 colnames(activities) <- c("activity")
 
@@ -58,7 +57,7 @@ colnames(activities) <- c("activity")
  to what we have read into actLabels. At this point we've addressed point 3
  and portions of 1 and 4.
 ```
-actLabels <- read.table("UCI-HAR-Dataset/activity_labels.txt")
+actLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
 activities$activity <- actLabels[activities$activity,2]
 X <- cbind(X, activities)
 dim(X)
@@ -69,8 +68,8 @@ dim(X)
  X data. At this point we add no more columns, and we have addressed parts
  1, 3, and 4. 
 ```
-stest <- read.table("UCI-HAR-Dataset/train/subject_train.txt")
-strain <- read.table("UCI-HAR-Dataset/test/subject_test.txt")
+stest <- read.table("UCI HAR Dataset/train/subject_train.txt")
+strain <- read.table("UCI HAR Dataset/test/subject_test.txt")
 subj <- rbind(stest, strain)
 colnames(subj) <- c("subject")
 X <- cbind(X, subj)
