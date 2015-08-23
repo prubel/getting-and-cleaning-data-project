@@ -8,7 +8,7 @@
 ### Assumptions
 # This script assumers that the dataset UCI HAR Dataset.zip
 # with an md5sum of d29710c9530a31f303801b6bc34bd895 has been unzipped
-# from the directory containing this script into ICI HAR Dataset. 
+# from the directory containing this script into UCI HAR Dataset. 
 
 ### Annotated Code:
 #import necessary libraries
