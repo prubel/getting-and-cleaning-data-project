@@ -1,22 +1,22 @@
-## Class Project
+## Class Project: Parse, join, and summarize UCI HAR dataset
 # This script show how to collect, clean, and work with a data set. Specifically it
 # analyzes the UCI HAR dataset about wearable computing, measured via smartphone.
 # It generates a tidy dataset showing the mean of each mean and standard deviation
 # of each variable on a per-participant, per-activity basis measured in the 
 # original dataset. This dataset can be found in average-by-subject-and-activity.txt.
-
-###Parse, join, and summarize UCI HAR dataset
-#```
-library(data.table)
-library(dplyr)
-
-#```
-### Assumptions 
+#
+### Assumptions
 # This script assumers that the dataset getdata-projectfiles-UCI HAR Dataset.zip
 # with an md5sum of d29710c9530a31f303801b6bc34bd895 has been unzipped
 # from the directory containing this script. 
 
+### Annotated Code:
+#import necessary libraries
 #```
+library(data.table)
+library(dplyr)
+#```
+
 ### Merge training and test measurement data: addresses portion of point #1
 # place test and train together using rbind. Leaves our data in
 # the X variable, which matches the description in the UCI HAR data. 
