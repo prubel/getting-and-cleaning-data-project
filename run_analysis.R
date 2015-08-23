@@ -6,9 +6,10 @@
 # original dataset. This dataset can be found in average-by-subject-and-activity.txt.
 #
 ### Assumptions
-# This script assumers that the dataset getdata-projectfiles-UCI HAR Dataset.zip
+# This script assumers that the dataset UCI HAR Dataset.zip
 # with an md5sum of d29710c9530a31f303801b6bc34bd895 has been unzipped
-# from the directory containing this script. 
+# from the directory containing this script into UCI-HAR-Dataset. Note that 
+# the spaces in the original directory name have been replaced with dashes.
 
 ### Annotated Code:
 #import necessary libraries
@@ -78,7 +79,9 @@ X <- cbind(X, subj)
 ### Extract only measurements with mean and standard deviation, addressing point 3.
 # Here we only take columns with the word mean, std, subject, or activity. We did
 # not split things previously to simplify labeling. After this block we have
-# completely addressed points 1,2,3, and 4. 
+# completely addressed points 1,2,3, and 4. Note that this data will be a wide tidy 
+# data as described here: 
+# https://class.coursera.org/getdata-031/forum/thread?thread_id=113
 #```
 XMeanSubset <- X[, like(colnames(X), "mean")    | like(colnames(X), "std") | 
                    like(colnames(X), "subject") | like(colnames(X), "activity")]
